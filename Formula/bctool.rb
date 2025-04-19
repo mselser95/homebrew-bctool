@@ -1,22 +1,28 @@
 class Bctool < Formula
   desc "Blockchain info tool"
   homepage "https://github.com/mselser95/bctool"
-  version "0.0.13"
+  version "0.0.14"
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/mselser95/bctool/releases/download/v0.0.13/bctool_linux_amd64"
-      sha256 "86691d0dd8bc2301cc306133548fcce66840a4b5f31b0d9c0585c5a314d656f9"
+      url "https://github.com/mselser95/bctool/releases/download/v0.0.14/bctool_linux_amd64"
+      sha256 "65924e522c10026b0d78efd8fe6eda15cce50f3edbd62f690b5bc80977f37a3b"
     end
 
     if Hardware::CPU.arm?
-      url "https://github.com/mselser95/bctool/releases/download/v0.0.13/bctool_linux_arm64"
-      sha256 "295ee35fe07276364dde2d502f0d97b900e7156a5ddc8de962597573c4595a82"
+      url "https://github.com/mselser95/bctool/releases/download/v0.0.14/bctool_linux_arm64"
+      sha256 "2bd489d9a312913e16748786a3ed618635e72b7c88d86b4ceb4afefa41af8904"
     end
   end
 
   def install
-    bin.install "\#{stable.url.split('/')[-1]}" => "bctool"
+    if OS.linux?
+      if Hardware::CPU.intel?
+        bin.install "bctool_linux_amd64" => "bctool"
+      elsif Hardware::CPU.arm?
+        bin.install "bctool_linux_arm64" => "bctool"
+      end
+    end
   end
 
   test do
