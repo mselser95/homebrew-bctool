@@ -1,17 +1,17 @@
 class Bctool < Formula
   desc "Blockchain info tool"
   homepage "https://github.com/mselser95/bctool"
-  version "0.0.16"
+  version "0.0.18"
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/mselser95/bctool/releases/download/v0.0.16/bctool_linux_amd64"
-      sha256 "e892d5d39bf3c1d1537b21984bb03c1683232d913ac3f417085a0f21e64fa981"
+      url "https://github.com/mselser95/bctool/releases/download/v0.0.18/bctool_linux_amd64"
+      sha256 "3c12fe1b4f2c22ab9bfd643700e8ff8d8a55c5a056f75d86507742bdf263bd9c"
     end
 
     if Hardware::CPU.arm?
-      url "https://github.com/mselser95/bctool/releases/download/v0.0.16/bctool_linux_arm64"
-      sha256 "0ca425e3657649ee0ddadf8c1f41d21690c0c29a581d41adbb5d905b71281f30"
+      url "https://github.com/mselser95/bctool/releases/download/v0.0.18/bctool_linux_arm64"
+      sha256 "4cc9b88ffb912beea15ffe52a1356ee06262d33834d6b568930684e31f4aaebf"
     end
   end
 
